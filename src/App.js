@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+
 import './App.css';
+import axios from 'axios';
+import keys from './key/accessKey';
+import SignIn from './Components/Sign In/SignIn';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 function App() {
+
+
+
+  // const handleCall = () => {
+  //   axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=valorant&key=${keys.ytKey}`)
+  //   .then(res => {
+  //     console.log(res.data)
+  //   })  
+  // }
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={SignIn}/>
+        </Switch>
+      </Router>
+        {/* <SignIn /> */}
     </div>
   );
 }

@@ -1,0 +1,75 @@
+.signin-container {
+    background-color: rgb(186, 186, 186);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-content {
+    background-color: rgb(159, 159, 159);
+    height: 50%;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    filter: drop-shadow(0 0 0.75rem black);
+}
+
+.signin-form {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    line-height: 5rem;
+}
+.signin-form p {
+    font-weight: bolder;
+}
+
+.signin-form a {
+    color: rgba(183,183,164,1);
+}
+
+.signin-input {
+    width: 20rem;
+    height: 2rem;
+}
+
+.signin-btn {
+    outline: none;
+    border: none;
+    background-color: rgba(183,183,164,1);
+    color: white;
+    cursor: pointer;
+}
+
+.signin-username, .signin-password {
+    padding-left: 3%;
+    outline: none;
+    border: white;
+}
+
+.signin-logo-container {
+    background: rgb(38,38,38);
+/* background: linear-gradient(154deg, rgba(38,38,38,1) 50%, rgba(193,193,193,1) 100%); */
+background: linear-gradient(153deg, rgba(0,0,0,1) 30%, rgba(183,183,164,1) 100%);
+    color: white;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-logo {
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
