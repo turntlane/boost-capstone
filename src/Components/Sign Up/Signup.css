@@ -1,8 +1,8 @@
 .signup-container {
-    position: absolute;
-    top: 50;
-    width: 70vw;
-    height: 80vh;
+    /* position: absolute;
+    top: 50; */
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(29, 29, 29, 0.708);
     display: flex;
     justify-content: center;
@@ -36,4 +36,12 @@
     height: 2rem;
     outline: none;
     border: white;
+}
+
+.signup-signin {
+    color: white;
+}
+
+.signup-link {
+    color: white;
 }
