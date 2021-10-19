@@ -29,6 +29,8 @@ function SignUp() {
     if (user) history.replace("/dashboard");
   }, [user, loading]);
 
+
+
   return (
     <div className="signup-container">
       <div className="signup-form">
