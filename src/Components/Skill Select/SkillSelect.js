@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
+import "./SkillSelect";
 import axios from "axios";
 import keys from "../../key/accessKey";
 import { auth, db, logout } from "../Firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import firebase from "firebase";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+postion: absolute;
+top: 0;
+border-color: green;
+color: green;
+`;
 
 function SkillSelect() {
   const [value, setValue] = useState("");
@@ -13,6 +23,8 @@ function SkillSelect() {
   const [videos, setVideos] = useState([]);
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [maxResults, setMaxResults] = useState(5);
+  const [isOn, setIsOn] = useState(false);
   const history = useHistory();
 
   const fetchUserName = async () => {
@@ -36,17 +48,20 @@ function SkillSelect() {
   }, [user, loading]);
 
   const handleSubmit = async () => {
-    await axios
+    setIsOn(true);
+    axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${value} ${skill} tutorial&key=${keys.ytKey}`
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${value} ${skill} tutorial&key=${keys.ytKey}`
       )
       .then((res) => {
         res.data.items.map((item) => console.log(item.id.videoId));
         setVideos(res.data.items.map((item) => item.id.videoId));
+        setIsOn(false);
       });
   };
 
   const addVideos = async (user, videos) => {
+    setIsOn(true)
     try {
       await db
         .collection("users")
@@ -54,6 +69,9 @@ function SkillSelect() {
         .update({
           likedVideos: firebase.firestore.FieldValue.arrayUnion(videos),
         });
+        setTimeout(() => {
+          setIsOn(false)
+        }, 3000);
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -72,6 +90,12 @@ function SkillSelect() {
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
       </select>
+      <select onChange={(e) => setMaxResults(e.target.value)}>
+        <option defaultValue="">Results Per Page</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
       <input placeholder="Skill" onChange={(e) => setSkill(e.target.value)} />
       <button onClick={handleSubmit}>Get call</button>
       {videos.map((video, i) => (
@@ -80,10 +104,15 @@ function SkillSelect() {
             title="video"
             src={`https://www.youtube.com/embed/${video}`}
           ></iframe>
-          <button onClick={() => addVideos(user, { video })}>+</button>
+          <button
+            onClick={() => addVideos(user, video)}
+          >
+            +
+          </button>
         </li>
       ))}
-      <Link to='profilepage'>Profile Page</Link>
+      <Link to="profilepage">Profile Page</Link>
+      {isOn ? <ClipLoader css={override} size={20} /> : ''}
     </div>
   );
 }
