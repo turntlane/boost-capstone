@@ -49,6 +49,21 @@ function Dashboard() {
       </div>
 
       <div className="boost-dashboard-container">
+        <div className='dashboard-img-container'>
+        <div className='dashboard-img'>
+        <h1>Hello</h1>
+          <img src='./images/milky-way.jpeg' alt='image' />
+        </div>
+        <div className='dashboard-img'>
+        <h1>Hello</h1>
+          <img src='./images/milky-way.jpeg' alt='image' />
+        </div>
+        <div className='dashboard-img'>
+        <h1>Hello</h1>
+          <img src='./images/milky-way.jpeg' alt='image' />
+        </div>
+
+        </div>
         {/* <h1>What is Boost?</h1>
         <p>
           Boost is an aid to help you reach your maximum potential. You have the

@@ -1,10 +1,24 @@
 .signin-container {
+    /* background: radial-gradient(circle, rgb(111, 111, 111) 0%, rgb(0, 0, 0) 100%); */
     background: radial-gradient(circle, rgb(111, 111, 111) 0%, rgb(0, 0, 0) 100%);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .signin-boost-span {
@@ -55,7 +69,8 @@
 }
 
 .signin-btn:hover {
-    background-color: rgb(159, 159, 159);
+    /* background-color: rgb(159, 159, 159); */
+    background-color: white;
     color: black;
     animation: fadein .3s ease-in;
 }
@@ -102,10 +117,7 @@
 
 @keyframes fadein {
     0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: .5;
+        opacity: 0.5;
     }
     100% {
         opacity: 1;

@@ -7,6 +7,7 @@ nav {
     align-items: center;
     flex-direction: row;
     padding-right: 5%;
+    animation: navFade .5s ease-in-out;
 }
 
 .nav-name {
@@ -38,6 +39,7 @@ li {
     color: white;
     font-weight: bolder;
     padding-right: 3%;
+    animation: navFade 1.5s ease-in;
 }
 
 
@@ -64,4 +66,13 @@ li {
 .bg-dark {
     /* --bs-bg-opacity: 1 !important; */
     background-color: teal !important;
+}
+
+@keyframes navFade {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }

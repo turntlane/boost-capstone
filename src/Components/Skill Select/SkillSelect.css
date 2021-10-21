@@ -1,0 +1,64 @@
+.skillselect-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.skillselect-select {
+    width: 100%;
+    height: auto;
+    background-color: rgb(172, 172, 172);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 5%;
+}
+
+.skillselect-callbtn {
+    width: 15rem;
+    height: 3rem;
+}
+
+.skillselect-btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.skillselect-dropdown {
+    height: 1.5rem;
+    width: 15rem;
+}
+
+
+.skillselect-list-container {
+    list-style: none;
+    text-align: center;
+    width: 100%;
+    height: inherit;
+    /* background-color: lightcoral; */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

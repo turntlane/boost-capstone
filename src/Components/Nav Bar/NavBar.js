@@ -33,6 +33,10 @@ function NavBar(props) {
       }, [user, loading]);
 
 
+
+
+
+
   return (
     <nav>
       <Link className='nav-link' name={name} to="/dashboard">Home</Link>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./SkillSelect";
+import "./SkillSelect.css";
 import axios from "axios";
 import keys from "../../key/accessKey";
 import { auth, db, logout } from "../Firebase/firebase";
@@ -27,6 +27,7 @@ function SkillSelect() {
   const [maxResults, setMaxResults] = useState(5);
   const [isOn, setIsOn] = useState(false);
   const history = useHistory();
+  const [isActive, setIsActive] = useState(false)
 
   // const fetchUserName = async () => {
   //   try {
@@ -49,6 +50,7 @@ function SkillSelect() {
   // }, [user, loading]);
 
   const handleSubmit = async () => {
+    setIsActive(true)
     setIsOn(true);
     axios
       .get(
@@ -80,40 +82,49 @@ function SkillSelect() {
   };
 
   return (
-    <div>
+    <div className='skillselect-container'>
       <NavBar />
-      {/* <div className="dashboard-header">Welcome, {name}!</div> */}
-      <button className="dashboard-btn" onClick={logout}>
+      {/* <button className="dashboard-btn" onClick={logout}>
         Logout
-      </button>
-      <select onChange={(e) => setValue(e.target.value)}>
+      </button> */}
+      <div className='skillselect-select'>
+      <select className='skillselect-dropdown' onChange={(e) => setValue(e.target.value)}>
         <option defaultValue="">Choose Skill Level</option>
         <option value="Beginner">Beginner</option>
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
       </select>
-      <select onChange={(e) => setMaxResults(e.target.value)}>
+      <select className='skillselect-dropdown' onChange={(e) => setMaxResults(e.target.value)}>
         <option defaultValue="">Results Per Page</option>
         <option value="5">5</option>
         <option value="10">10</option>
         <option value="15">15</option>
       </select>
       <input placeholder="Skill" onChange={(e) => setSkill(e.target.value)} />
-      <button onClick={handleSubmit}>Get call</button>
-      {videos.map((video, i) => (
+      <Link to="profilepage">Profile Page</Link>
+      <div className='skillselect-btn-container'>
+
+      <button className='skillselect-callbtn' onClick={handleSubmit}>Get call</button>
+      </div>
+      </div>
+      <div className='skillselect-list-container'>
+
+      {isActive ? videos.map((video, i) => (
+        <div>
         <li className="skillselect-list" key={i}>
           <iframe
             title="video"
             src={`https://www.youtube.com/embed/${video}`}
           ></iframe>
+        </li>
           <button
             onClick={() => addVideos(user, video)}
           >
             +
           </button>
-        </li>
-      ))}
-      <Link to="profilepage">Profile Page</Link>
+          </div>
+      )) :  null}
+      </div>
       {isOn ? <ClipLoader css={override} size={20} /> : ''}
     </div>
   );
