@@ -1,0 +1,67 @@
+nav {
+    width: 100vw;
+    height: 10vh;
+    background: radial-gradient(circle, rgb(26, 125, 118) 0%, rgb(128, 109, 109) 100%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 5%;
+}
+
+.nav-name {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+}
+
+li {
+    padding-right: 5%;
+}
+
+.nav-dropdown {
+    background-color: teal !important;
+}
+
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding-right: 3%;
+}
+
+
+.nav-brand {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+}
+
+.nav-dropdown {
+    color: white;
+}
+
+.bg-dark {
+    /* --bs-bg-opacity: 1 !important; */
+    background-color: teal !important;
+}

@@ -4,6 +4,8 @@ import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import { auth, db, logout } from "../Firebase/firebase";
+import NavBar from "../Nav Bar/NavBar";
+import firebase from "firebase";
 
 function Dashboard() {
   const [user, loading] = useAuthState(auth);
@@ -12,7 +14,7 @@ function Dashboard() {
 
 
 
-  const fetchUserName = async () => {
+    const fetchUserName = async () => {
     try {
       const query = await db
         .collection("users")
@@ -36,25 +38,25 @@ function Dashboard() {
 
 
 
-
   return (
     <div className="dashboard">
       <div className="dashboard-container">
-        <div className="dashboard-header">Welcome, {name}!</div>
-        <button className="dashboard-btn" onClick={logout}>
+      <NavBar />
+        {/* <div className="dashboard-header">Welcome, {name}!</div> */}
+        {/* <button className="dashboard-btn" onClick={logout}>
           Logout
-        </button>
+        </button> */}
       </div>
 
       <div className="boost-dashboard-container">
-        <h1>What is Boost?</h1>
+        {/* <h1>What is Boost?</h1>
         <p>
           Boost is an aid to help you reach your maximum potential. You have the
           ability to choose what skill to advance in. Whether it be a hobby or a
           skill you need at your job, Boost is here to help. Input your desired
           task and current skill level, and let Boost organize a unique set of
           informational videos catering to your desired needs.
-        </p>
+        </p> */}
           {<Link className="boost-dashboard-btn" to="/skillselect">Get Started</Link>}
       </div>
     </div>

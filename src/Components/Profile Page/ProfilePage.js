@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { auth, db, logout } from "../Firebase/firebase";
 import firebase from "firebase";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
+import NavBar from "../Nav Bar/NavBar";
 
 const override = css`
   postion: absolute;
@@ -15,44 +15,40 @@ const override = css`
 `;
 
 function ProfilePage() {
-  const [user, loading] = useAuthState(auth);
-  const [name, setName] = useState("");
+  const [user] = useAuthState(auth);
   const [videos, setVideos] = useState([]);
   const [isOn, setIsOn] = useState(false);
-  const history = useHistory();
 
-  const fetchUserName = async () => {
-    try {
-      const query = await db
-        .collection("users")
-        .where("uid", "==", user?.uid)
-        .get();
-      const data = query.docs[0].data();
-      setName(data.name);
-    } catch (err) {
-      console.error(err);
-      alert("An error occured while fetching user data");
-    }
-  };
+  // const getData = async () => {
+  //   await db
+  //     .collection("users")
+  //     .where("uid", "==", user?.uid)
+  //     .get()
+  //     .then((querySnapshot) => {
+  //       querySnapshot.forEach((doc) => {
+  //         console.log(doc.data().likedVideos.map((video) => video));
+
+  //         setVideos(doc.data().likedVideos.map((video) => video));
+  //       });
+  //     });
+  // };
+
   useEffect(() => {
-    if (loading) return;
-    if (!user) return history.replace("/");
-    fetchUserName();
-  }, [user, loading]);
+     db
+    .collection("users")
+    .where("uid", "==", user?.uid)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data().likedVideos.map((video) => video));
 
-  const getData = async () => {
-    await db
-      .collection("users")
-      .where("uid", "==", user?.uid)
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          console.log(doc.data().likedVideos.map((video) => video));
-
-          setVideos(doc.data().likedVideos.map((video) => video));
-        });
+        setVideos(doc.data().likedVideos.map((video) => video));
       });
-  };
+    });
+  })
+
+
+
 
   const deleteData = async (user, videos) => {
     setIsOn(true);
@@ -64,7 +60,7 @@ function ProfilePage() {
           likedVideos: firebase.firestore.FieldValue.arrayRemove(videos),
         });
       setIsOn(false);
-      getData();
+      // getData();
       console.log("deleted");
     } catch (err) {
       console.error(err);
@@ -74,9 +70,14 @@ function ProfilePage() {
 
   return (
     <div>
-      <div className="dashboard-header">Welcome, {name}!</div>
+      <NavBar />
+      {/* <div className="dashboard-header">Welcome, {name}!
+      </div> */}
+      {/* <select defaultValue='profile' onChange={(e) => logout()}>
+        <option value='logout'>Logout</option>
+      </select> */}
       <button onClick={logout}>Logout</button>
-      <button onClick={getData}>get data</button>
+      {/* <button onClick={getData}>get data</button> */}
       {videos.length < 1 ? <h1>List is empty</h1> : ''}
       {videos.map((video, i) => (
         <li className="skillselect-list" key={i}>

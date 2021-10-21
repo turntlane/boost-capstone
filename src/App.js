@@ -6,6 +6,7 @@ import SignUp from './Components/Sign Up/Signup';
 import Dashboard from './Components/Dashboard/Dashboard';
 import SkillSelect from './Components/Skill Select/SkillSelect';
 import ProfilePage from './Components/Profile Page/ProfilePage';
+import NavBar from './Components/Nav Bar/NavBar';
 
 
 

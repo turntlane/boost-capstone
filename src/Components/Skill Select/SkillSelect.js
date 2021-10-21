@@ -9,6 +9,7 @@ import firebase from "firebase";
 import { Link } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
+import NavBar from "../Nav Bar/NavBar";
 
 const override = css`
 postion: absolute;
@@ -27,25 +28,25 @@ function SkillSelect() {
   const [isOn, setIsOn] = useState(false);
   const history = useHistory();
 
-  const fetchUserName = async () => {
-    try {
-      const query = await db
-        .collection("users")
-        .where("uid", "==", user?.uid)
-        .get();
-      const data = query.docs[0].data();
-      setName(data.name);
-    } catch (err) {
-      console.error(err);
-      alert("An error occured while fetching user data");
-    }
-  };
+  // const fetchUserName = async () => {
+  //   try {
+  //     const query = await db
+  //       .collection("users")
+  //       .where("uid", "==", user?.uid)
+  //       .get();
+  //     const data = query.docs[0].data();
+  //     setName(data.name);
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("An error occured while fetching user data");
+  //   }
+  // };
 
-  useEffect(() => {
-    if (loading) return;
-    if (!user) return history.replace("/");
-    fetchUserName();
-  }, [user, loading]);
+  // useEffect(() => {
+  //   if (loading) return;
+  //   if (!user) return history.replace("/");
+  //   fetchUserName();
+  // }, [user, loading]);
 
   const handleSubmit = async () => {
     setIsOn(true);
@@ -80,7 +81,8 @@ function SkillSelect() {
 
   return (
     <div>
-      <div className="dashboard-header">Welcome, {name}!</div>
+      <NavBar />
+      {/* <div className="dashboard-header">Welcome, {name}!</div> */}
       <button className="dashboard-btn" onClick={logout}>
         Logout
       </button>
