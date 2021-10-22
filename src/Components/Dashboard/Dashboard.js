@@ -6,6 +6,7 @@ import "./Dashboard.css";
 import { auth, db, logout } from "../Firebase/firebase";
 import NavBar from "../Nav Bar/NavBar";
 import firebase from "firebase";
+import Globe from "../Globe/Globe";
 
 function Dashboard() {
   const [user, loading] = useAuthState(auth);
@@ -39,18 +40,16 @@ function Dashboard() {
 
 
   return (
-    <div className="dashboard">
+
       <div className="dashboard-container">
       <NavBar />
         {/* <div className="dashboard-header">Welcome, {name}!</div> */}
         {/* <button className="dashboard-btn" onClick={logout}>
           Logout
         </button> */}
-      </div>
 
-      <div className="boost-dashboard-container">
         <div className='dashboard-img-container'>
-        <div className='dashboard-img'>
+        {/* <div className='dashboard-img'>
         <h1>Hello</h1>
           <img src='./images/milky-way.jpeg' alt='image' />
         </div>
@@ -61,20 +60,22 @@ function Dashboard() {
         <div className='dashboard-img'>
         <h1>Hello</h1>
           <img src='./images/milky-way.jpeg' alt='image' />
-        </div>
+        </div> */}
+        <Globe />
 
         </div>
-        {/* <h1>What is Boost?</h1>
+        <div className='dashboard-info-container'>
+        <h1>What is Boost?</h1>
         <p>
           Boost is an aid to help you reach your maximum potential. You have the
           ability to choose what skill to advance in. Whether it be a hobby or a
           skill you need at your job, Boost is here to help. Input your desired
           task and current skill level, and let Boost organize a unique set of
           informational videos catering to your desired needs.
-        </p> */}
+        </p>
+        </div>
           {<Link className="boost-dashboard-btn" to="/skillselect">Get Started</Link>}
       </div>
-    </div>
   );
 }
 

@@ -11,7 +11,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
 import NavBar from "../Nav Bar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const override = css`
   display: block;
@@ -68,13 +68,13 @@ function SkillSelect() {
 
   return (
     <div className="skillselect-container">
-    <NavBar />
-    {isOn ? 
+          {isOn ? 
       <div className='loading-screen' style={{flex : 1, justifyContent: 'center', alignItems: 'center',}}>
 
         <ClipLoader  css={override} size={100} /> 
       </div>
       : ""}
+    <NavBar />
       {/* <button className="dashboard-btn" onClick={logout}>
         Logout
       </button> */}
@@ -124,7 +124,7 @@ function SkillSelect() {
                     src={`https://www.youtube.com/embed/${video}`}
                   ></iframe>
                 </li>
-                <button className='skillselect-add-btn' onClick={() => addVideos(user, video)}>Add to favorites </button>
+                <button className='skillselect-add-btn' onClick={() => addVideos(user, video)}>Add to favorites {<FontAwesomeIcon icon={faPlus} />}</button>
               </div>
             ))}
       </div>

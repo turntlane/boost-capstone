@@ -1,53 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { logout } from "../Firebase/firebase";
-import './ProfileDropDown.css'
+import { Link } from "react-router-dom";
 
-class ProfileDropDown extends Component {
-  constructor() {
-    super();
-    
-    this.state = {
-      showMenu: false,
-    };
-    
-  }
-  
-  showMenu = () => {
+import "./ProfileDropDown.css";
 
-    
-    this.setState({ showMenu: true });
+function ProfileDropDown() {
+  const [showMenu, setShowMenu] = useState('')
 
-  }
-  
-  closeMenu = () => {
-    this.setState({ showMenu: false });
+  const menu = () => {
+    setShowMenu(true)
   }
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.showMenu}>
-          {<FontAwesomeIcon icon={faCaretDown} />}
-        </button>
-        
-        {
-          this.state.showMenu
-            ? (
-              <div className="dropdown-menu">
-                <button onClick={logout}> Logout </button>
-                <button> Menu item 3 </button>
-                <button onClick={this.closeMenu}>close</button>
-              </div>
-            )
-            : (
-              null
-            )
-        }
-      </div>
-    );
-  }
+  return (
+    <div className='dropdown'>
+    {<FontAwesomeIcon onMouseOver={menu} className='dropbtn' icon={faCaretDown} />}
+
+  {showMenu ? (
+    <div className="dropdown-content">
+      <Link to="/profilepage">
+        Profile Page
+      </Link>
+      <a onClick={logout}>Logout</a>
+    </div>
+  ) : null}
+</div>
+  )
 }
 
 export default ProfileDropDown

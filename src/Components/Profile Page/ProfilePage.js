@@ -6,7 +6,9 @@ import firebase from "firebase";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
 import NavBar from "../Nav Bar/NavBar";
-import ProfileDropDown from "../Profile Dropdown/ProfileDropDown";
+import './ProfilePage.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown, faArrowUp, faThumbsUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const override = css`
   postion: absolute;
@@ -19,6 +21,9 @@ function ProfilePage() {
   const [user] = useAuthState(auth);
   const [videos, setVideos] = useState([]);
   const [isOn, setIsOn] = useState(false);
+  const [showMore, setShowMore] = useState(false)
+  const [items, setItems] = useState(6)
+  const [expanded, setExpanded] = useState(false)
 
   
 
@@ -43,14 +48,20 @@ function ProfilePage() {
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-
         setVideos(doc.data().likedVideos.map((video) => video));
       });
     });
   })
 
-
-
+  const moreItems = () => {
+    if (items <= 6) {
+      setItems(items.length)
+      setExpanded(true)
+    } else {
+      setItems(6)
+      setExpanded(false)
+    }
+  }
 
   const deleteData = async (user, videos) => {
     setIsOn(true);
@@ -61,7 +72,9 @@ function ProfilePage() {
         .update({
           likedVideos: firebase.firestore.FieldValue.arrayRemove(videos),
         });
-      setIsOn(false);
+        setTimeout(() => {
+          setIsOn(false);
+        }, 3000);
       // getData();
       console.log("deleted");
     } catch (err) {
@@ -71,28 +84,45 @@ function ProfilePage() {
   };
 
   return (
-    <div>
+    <div className='profilepage-container'>
+                {isOn ? 
+      <div className='loading-screen' style={{flex : 1, justifyContent: 'center', alignItems: 'center',}}>
+
+        <ClipLoader  css={override} size={100} /> 
+      </div>
+      : ""}
       <NavBar />
-      {/* <div className="dashboard-header">Welcome, {name}!
-      </div> */}
-      {/* <select defaultValue='profile' onChange={(e) => logout()}>
-        <option value='logout'>Logout</option>
-      </select> */}
-      <button onClick={logout}>Logout</button>
-      {/* <button onClick={getData}>get data</button> */}
+      <h1 className='profilepage-header'>Favorites {<FontAwesomeIcon icon={faThumbsUp} />}</h1>
+      <div className='profilepage-content'>
       {videos.length < 1 ? <h1>List is empty</h1> : ''}
-      {videos.map((video, i) => (
-        <li className="skillselect-list" key={i}>
+      {videos.slice(0, items).map((video, i) => (
+        <div>
+        <li className="profilepage-list" key={i}>
           <iframe
+          allowFullScreen
+          className='profilepage-videos'
             title="video"
             src={`https://www.youtube.com/embed/${video}`}
           ></iframe>
-          <button onClick={() => deleteData(user, video)}>-</button>
         </li>
+          <button className='profilepage-deletebtn' onClick={() => deleteData(user, video)}>Delete from favorites {<FontAwesomeIcon icon={faTrashAlt} />}</button>
+          </div>
       ))}
-      {isOn ? <ClipLoader css={override} size={20} /> : ""}
-      <Link to="skillselect">Skill Select</Link>
 
+      </div>
+        <div className='showmore-container'>
+
+        <button className='showmore' onClick={moreItems}>
+        {expanded ? <span className='showmore'>
+          Show Less {<FontAwesomeIcon icon={faArrowUp} />}
+        </span> :
+        <span className='showmore'>
+          Show All {<FontAwesomeIcon icon={faArrowDown} />}
+        </span>
+        }
+      </button>
+
+        </div>
     </div>
   );
 }

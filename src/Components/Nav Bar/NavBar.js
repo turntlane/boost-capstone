@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect} from "react";
 import { useHistory } from "react-router";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import "./NavBar.css";
 import ProfileDropDown from "../Profile Dropdown/ProfileDropDown";
 
 
-function NavBar(props) {
+function NavBar() {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const history = useHistory();
@@ -49,6 +49,7 @@ function NavBar(props) {
           Logout
         </button> */}
       <ProfileDropDown
+      logout={logout}
       />
     </nav>
   );

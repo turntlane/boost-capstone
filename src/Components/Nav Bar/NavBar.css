@@ -1,14 +1,16 @@
 nav {
     width: 100vw;
     height: 10vh;
-    background: radial-gradient(circle, rgb(26, 125, 118) 0%, rgb(128, 109, 109) 100%);
+    /* background: radial-gradient(circle, rgb(26, 125, 118) 0%, rgb(128, 109, 109) 100%); */
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: row;
     padding-right: 5%;
     animation: navFade .5s ease-in-out;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.249);
 }
+
 
 .nav-name {
     font-family: 'Poppins', sans-serif;
@@ -40,6 +42,10 @@ li {
     font-weight: bolder;
     padding-right: 3%;
     animation: navFade 1.5s ease-in;
+}
+
+.nav-link:hover {
+    opacity: .5;
 }
 
 
