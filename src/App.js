@@ -12,16 +12,6 @@ import NavBar from './Components/Nav Bar/NavBar';
 
 function App() {
 
-  // const [videos, setVideos] = useState([])
-
-
-  // useEffect(() => {
-  //   axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=valorant&key=${keys.ytKey}`)
-  //   .then(res => {
-  //     setVideos(res.data)
-  //   }) 
-  // }, [])
-
 
 
 

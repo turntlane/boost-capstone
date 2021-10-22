@@ -6,6 +6,7 @@ import firebase from "firebase";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
 import NavBar from "../Nav Bar/NavBar";
+import ProfileDropDown from "../Profile Dropdown/ProfileDropDown";
 
 const override = css`
   postion: absolute;
@@ -18,6 +19,8 @@ function ProfilePage() {
   const [user] = useAuthState(auth);
   const [videos, setVideos] = useState([]);
   const [isOn, setIsOn] = useState(false);
+
+  
 
   // const getData = async () => {
   //   await db
@@ -40,7 +43,6 @@ function ProfilePage() {
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        console.log(doc.data().likedVideos.map((video) => video));
 
         setVideos(doc.data().likedVideos.map((video) => video));
       });
@@ -90,6 +92,7 @@ function ProfilePage() {
       ))}
       {isOn ? <ClipLoader css={override} size={20} /> : ""}
       <Link to="skillselect">Skill Select</Link>
+
     </div>
   );
 }

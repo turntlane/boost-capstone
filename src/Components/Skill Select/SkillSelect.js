@@ -10,49 +10,31 @@ import { Link } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
 import NavBar from "../Nav Bar/NavBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const override = css`
-postion: absolute;
-top: 0;
-border-color: green;
-color: green;
+  display: block;
+  margin: 0 auto;
+  border-color: green;
 `;
+
+// const screenHeight = document.body.height
 
 function SkillSelect() {
   const [value, setValue] = useState("");
   const [skill, setSkill] = useState("");
   const [videos, setVideos] = useState([]);
   const [user, loading] = useAuthState(auth);
-  const [name, setName] = useState("");
-  const [maxResults, setMaxResults] = useState(5);
+  const [maxResults, setMaxResults] = useState(6);
   const [isOn, setIsOn] = useState(false);
-  const history = useHistory();
-  const [isActive, setIsActive] = useState(false)
-
-  // const fetchUserName = async () => {
-  //   try {
-  //     const query = await db
-  //       .collection("users")
-  //       .where("uid", "==", user?.uid)
-  //       .get();
-  //     const data = query.docs[0].data();
-  //     setName(data.name);
-  //   } catch (err) {
-  //     console.error(err);
-  //     alert("An error occured while fetching user data");
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (loading) return;
-  //   if (!user) return history.replace("/");
-  //   fetchUserName();
-  // }, [user, loading]);
+  const [isActive, setIsActive] = useState(false);
 
   const handleSubmit = async () => {
-    setIsActive(true)
+    setIsActive(true);
     setIsOn(true);
-    axios
+    try {
+      axios
       .get(
         `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${value} ${skill} tutorial&key=${keys.ytKey}`
       )
@@ -61,10 +43,13 @@ function SkillSelect() {
         setVideos(res.data.items.map((item) => item.id.videoId));
         setIsOn(false);
       });
+    } catch (err) {
+      console.error(err)
+    }
   };
 
   const addVideos = async (user, videos) => {
-    setIsOn(true)
+    setIsOn(true);
     try {
       await db
         .collection("users")
@@ -72,9 +57,9 @@ function SkillSelect() {
         .update({
           likedVideos: firebase.firestore.FieldValue.arrayUnion(videos),
         });
-        setTimeout(() => {
-          setIsOn(false)
-        }, 3000);
+      setTimeout(() => {
+        setIsOn(false);
+      }, 3000);
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -82,50 +67,67 @@ function SkillSelect() {
   };
 
   return (
-    <div className='skillselect-container'>
-      <NavBar />
+    <div className="skillselect-container">
+    <NavBar />
+    {isOn ? 
+      <div className='loading-screen' style={{flex : 1, justifyContent: 'center', alignItems: 'center',}}>
+
+        <ClipLoader  css={override} size={100} /> 
+      </div>
+      : ""}
       {/* <button className="dashboard-btn" onClick={logout}>
         Logout
       </button> */}
-      <div className='skillselect-select'>
-      <select className='skillselect-dropdown' onChange={(e) => setValue(e.target.value)}>
-        <option defaultValue="">Choose Skill Level</option>
-        <option value="Beginner">Beginner</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced">Advanced</option>
-      </select>
-      <select className='skillselect-dropdown' onChange={(e) => setMaxResults(e.target.value)}>
-        <option defaultValue="">Results Per Page</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-      </select>
-      <input placeholder="Skill" onChange={(e) => setSkill(e.target.value)} />
-      <Link to="profilepage">Profile Page</Link>
-      <div className='skillselect-btn-container'>
-
-      <button className='skillselect-callbtn' onClick={handleSubmit}>Get call</button>
-      </div>
-      </div>
-      <div className='skillselect-list-container'>
-
-      {isActive ? videos.map((video, i) => (
-        <div>
-        <li className="skillselect-list" key={i}>
-          <iframe
-            title="video"
-            src={`https://www.youtube.com/embed/${video}`}
-          ></iframe>
-        </li>
-          <button
-            onClick={() => addVideos(user, video)}
+        <div className="skillselect-select">
+          <select
+            className="skillselect-dropdown"
+            onChange={(e) => setValue(e.target.value)}
           >
-            +
+            <option className="skillselect-option" defaultValue="">
+              Choose Skill Level
+            </option>
+            <option className="skillselect-option" value="Beginner">
+              Beginner
+            </option>
+            <option className="skillselect-option" value="Intermediate">
+              Intermediate
+            </option>
+            <option className="skillselect-option" value="Advanced">
+              Advanced
+            </option>
+          </select>
+          <input
+            className="skillselect-input"
+            placeholder="Skill"
+            onChange={(e) => setSkill(e.target.value)}
+          />
+          <button className="skillselect-callbtn" onClick={handleSubmit}>
+            <FontAwesomeIcon className='skillselect-search' icon={faSearch} />
           </button>
-          </div>
-      )) :  null}
+          <select
+            className="skillselect-results"
+            onChange={(e) => setMaxResults(e.target.value)}
+          >
+            <option defaultValue="">Results Per Page</option>
+            <option value="6">6</option>
+            <option value="12">12</option>
+            <option value="18">18</option>
+          </select>
+        </div>
+        <div className="skillselect-list-container">
+        {videos.map((video, i) => (
+              <div>
+                <li className="skillselect-list" key={i}>
+                  <iframe
+                  className='skillselect-videos'
+                    title="video"
+                    src={`https://www.youtube.com/embed/${video}`}
+                  ></iframe>
+                </li>
+                <button className='skillselect-add-btn' onClick={() => addVideos(user, video)}>Add to favorites </button>
+              </div>
+            ))}
       </div>
-      {isOn ? <ClipLoader css={override} size={20} /> : ''}
     </div>
   );
 }
