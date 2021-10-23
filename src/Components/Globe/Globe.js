@@ -11,28 +11,12 @@ class Globe extends Component {
   }
   
 
-  componentDidMount(texture) {
+  componentDidMount() {
     const loader = new THREE.TextureLoader();
-    loader.load(
-        // resource URL
-        'textures/land_ocean_ice_cloud_2048.jpg',
-    
-        // onLoad callback
-        function ( texture ) {
-            // in this example we create the material when the texture is loaded
-            const material = new THREE.MeshBasicMaterial( {
-                map: texture
-             } );
-        },
-    
-        // onProgress callback currently not supported
-        undefined,
-    
-        // onError callback
-        function ( err ) {
-            console.error( 'An error happened.' );
-        }
+    const textureLoader = loader.load(
+        require('/src/images/earthspec1k.jpeg'),
     );
+
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
 
@@ -45,31 +29,30 @@ class Globe extends Component {
     )
     const renderer = new THREE.WebGLRenderer({ alpha: true })
     const geometry   = new THREE.SphereGeometry(0.5, 32, 32)
-    const material  = new THREE.MeshPhongMaterial( {
-        map: texture
-     } );
-    const cube = new THREE.Mesh(geometry, material)
-    scene.add(cube)
+    const material  = new THREE.MeshStandardMaterial({map: this.myTexture, alphaTest: .5 });
+    const sphere = new THREE.Mesh(geometry, material)
+    scene.add(sphere)
 
     camera.position.z = 3
     renderer.setClearColor(0,0)
     renderer.setSize(width, height)
 
     const light = new THREE.DirectionalLight({
-        color: "white",
-        intensity: 0,
+        color: "red",
+        intensity: 1,
       });
-      light.position.set(20, 50, 20);
+      light.position.set(-10, -4, 5);
   
-      const ambientLight = new THREE.AmbientLight("lightblue", 0);
+      const ambientLight = new THREE.AmbientLight("red", 0);
   
       scene.add(light, ambientLight);
+      
 
     this.scene = scene
     this.camera = camera
     this.renderer = renderer
     this.material = material
-    this.cube = cube
+    this.sphere = sphere
 
     this.mount.appendChild(this.renderer.domElement)
     this.start()
@@ -91,8 +74,8 @@ class Globe extends Component {
   }
 
   animate() {
-    this.cube.rotation.x += 0.01
-    this.cube.rotation.y += 0.01
+    this.sphere.rotation.x += 0.01
+    this.sphere.rotation.y += -0.01
 
     this.renderScene()
     this.frameId = window.requestAnimationFrame(this.animate)
@@ -105,7 +88,7 @@ class Globe extends Component {
   render() {
     return (
       <div
-        style={{ width: '400px', height: '400px' }}
+        style={{ width: '1000px', height: '1000px' }}
         ref={(mount) => { this.mount = mount }}
       />
     )

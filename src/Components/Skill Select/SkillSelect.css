@@ -120,6 +120,7 @@
   height: 13rem;
   filter: drop-shadow(0 1rem 1.5rem black);
   margin-bottom: 5%;
+  border-radius: 10px;
   /* margin-top: 5%; */
 }
 

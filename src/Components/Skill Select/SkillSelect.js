@@ -39,7 +39,6 @@ function SkillSelect() {
         `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${value} ${skill} tutorial&key=${keys.ytKey}`
       )
       .then((res) => {
-        res.data.items.map((item) => console.log(item.id.videoId));
         setVideos(res.data.items.map((item) => item.id.videoId));
         setIsOn(false);
       });
@@ -116,9 +115,9 @@ function SkillSelect() {
         </div>
         <div className="skillselect-list-container">
         {videos.map((video, i) => (
-              <div>
+              <div key={i}>
                 <li className="skillselect-list" key={i}>
-                  <iframe
+                  <iframe key={i}
                   className='skillselect-videos'
                     title="video"
                     src={`https://www.youtube.com/embed/${video}`}
