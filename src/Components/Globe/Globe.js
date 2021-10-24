@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import * as THREE from 'three'
+import image from '../../images/earthspec1k.jpeg'
+import point from './Points'
 
 class Globe extends Component {
   constructor(props) {
@@ -12,10 +14,6 @@ class Globe extends Component {
   
 
   componentDidMount() {
-    const loader = new THREE.TextureLoader();
-    const textureLoader = loader.load(
-        require('/src/images/earthspec1k.jpeg'),
-    );
 
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
@@ -27,9 +25,17 @@ class Globe extends Component {
       0.1,
       1000
     )
+    const loader = new THREE.TextureLoader();
+    const textureLoader = loader.load(
+        'https://www.uni-konstanz.de/typo3temp/secure_downloads/56557/0/8b23dff0ec21c12d67252fe5eeaef84c5e84f89d/csm_Fotolia_71874838_XL_a44ba62b41.jpg'
+    );
+
+    
+
+
     const renderer = new THREE.WebGLRenderer({ alpha: true })
     const geometry   = new THREE.SphereGeometry(0.5, 32, 32)
-    const material  = new THREE.MeshStandardMaterial({map: this.myTexture, alphaTest: .5 });
+    const material  = new THREE.MeshStandardMaterial({map: textureLoader, color: 'white'});
     const sphere = new THREE.Mesh(geometry, material)
     scene.add(sphere)
 
@@ -39,13 +45,15 @@ class Globe extends Component {
 
     const light = new THREE.DirectionalLight({
         color: "red",
-        intensity: 1,
+        intensity: 10,
       });
       light.position.set(-10, -4, 5);
   
       const ambientLight = new THREE.AmbientLight("red", 0);
   
       scene.add(light, ambientLight);
+
+      
       
 
     this.scene = scene
@@ -74,8 +82,8 @@ class Globe extends Component {
   }
 
   animate() {
-    this.sphere.rotation.x += 0.01
-    this.sphere.rotation.y += -0.01
+    this.sphere.rotation.x += -0.0002
+    this.sphere.rotation.y +=-0.002
 
     this.renderScene()
     this.frameId = window.requestAnimationFrame(this.animate)

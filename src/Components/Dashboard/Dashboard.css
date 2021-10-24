@@ -2,7 +2,8 @@
 .dashboard-container {
   width: 100vw;
   height: 100vh;
-  background-image: url('/src/images/kenrick-mills-MF9Wy1NA55I-unsplash.jpg');
+  /* background-image: url('/src/images/kenrick-mills-MF9Wy1NA55I-unsplash.jpg'); */
+  background-color: rgb(82, 82, 82);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
