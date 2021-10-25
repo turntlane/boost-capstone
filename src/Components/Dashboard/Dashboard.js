@@ -43,6 +43,7 @@ function Dashboard() {
 
       <div className="dashboard-container">
       <NavBar />
+      <Globe />
         {/* <div className="dashboard-header">Welcome, {name}!</div> */}
         {/* <button className="dashboard-btn" onClick={logout}>
           Logout
@@ -61,7 +62,7 @@ function Dashboard() {
         <h1>Hello</h1>
           <img src='./images/milky-way.jpeg' alt='image' />
         </div> */}
-        <Globe />
+
 
         </div>
         <div className='dashboard-info-container'>
@@ -73,8 +74,14 @@ function Dashboard() {
           task and current skill level, and let Boost organize a unique set of
           informational videos catering to your desired needs.
         </p>
-        </div>
+          <h1 className='dashboard-instructions'>Instructions:</h1>
+        <p>
+        Select a skill you are looking to improve.
+        Select your current experience with desired skill.
+        Let Boost do the rest!
+        </p>
           {<Link className="boost-dashboard-btn" to="/skillselect">Get Started</Link>}
+        </div>
       </div>
   );
 }

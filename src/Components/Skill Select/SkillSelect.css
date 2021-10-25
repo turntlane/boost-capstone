@@ -30,6 +30,11 @@
   font-family: "Poppins", sans-serif;
   font-weight: bolder;
   border-radius: 25px;
+  color: white;
+}
+
+.skillselect-input::placeholder {
+  color: white;
 }
 
 .skillselect-search {
@@ -41,9 +46,6 @@
   color: white;
 }
 
-.skillselect-input::placeholder {
-  color: black;
-}
 
 .skillselect-callbtn {
   outline: none;

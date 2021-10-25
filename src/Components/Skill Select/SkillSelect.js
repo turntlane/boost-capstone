@@ -19,8 +19,6 @@ const override = css`
   border-color: green;
 `;
 
-// const screenHeight = document.body.height
-
 function SkillSelect() {
   const [value, setValue] = useState("");
   const [skill, setSkill] = useState("");
@@ -28,17 +26,19 @@ function SkillSelect() {
   const [user, loading] = useAuthState(auth);
   const [maxResults, setMaxResults] = useState(6);
   const [isOn, setIsOn] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  const [isFetching, setIsFetching] = useState(false)
+  const [random, setRandom] = useState('')
 
   const handleSubmit = async () => {
-    setIsActive(true);
     setIsOn(true);
+    setIsFetching(true)
     try {
       axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${value} ${skill} tutorial&key=${keys.ytKey}`
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&pageToken=CBAQAA&q=${value} ${skill} tutorial&key=${keys.ytKey}`
       )
       .then((res) => {
+        console.log(res.data)
         setVideos(res.data.items.map((item) => item.id.videoId));
         setIsOn(false);
       });
@@ -74,9 +74,6 @@ function SkillSelect() {
       </div>
       : ""}
     <NavBar />
-      {/* <button className="dashboard-btn" onClick={logout}>
-        Logout
-      </button> */}
         <div className="skillselect-select">
           <select
             className="skillselect-dropdown"
