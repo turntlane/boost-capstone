@@ -17,22 +17,6 @@ nav {
     color: white;
 }
 
-ul {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: row;
-    list-style: none;
-}
-
-li {
-    padding-right: 5%;
-}
-
-.nav-dropdown {
-    background-color: teal !important;
-}
 
 
 .nav-link {

@@ -7,15 +7,16 @@ import { auth, db, logout } from "../Firebase/firebase";
 import NavBar from "../Nav Bar/NavBar";
 import firebase from "firebase";
 import Globe from "../Globe/Globe";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+
 
 function Dashboard() {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const history = useHistory();
 
-
-
-    const fetchUserName = async () => {
+  const fetchUserName = async () => {
     try {
       const query = await db
         .collection("users")
@@ -34,55 +35,46 @@ function Dashboard() {
     fetchUserName();
   }, [user, loading]);
 
-
-
-
-
-
   return (
-
-      <div className="dashboard-container">
+    <div className="dashboard-container">
       <NavBar />
       <Globe />
-        {/* <div className="dashboard-header">Welcome, {name}!</div> */}
-        {/* <button className="dashboard-btn" onClick={logout}>
-          Logout
-        </button> */}
+      <div className='dashboard-main'>
+        <h1 className='whatisboost'>What is Boost?</h1>
+        {
+          <Link className="boost-dashboard-btn" to="/skillselect">
+            Get Started
+          </Link>
+        }
+                {
+          <Link className="boost-dashboard-btn" to="/profilepage">
+            Profile Page
+          </Link>
+        }
+                {
+          <Link className="boost-dashboard-btn" to="/skillselect">
+            Reaction Test
+          </Link>
+        }
+      </div>
+      <a className='dashboard-anchor' href='#info'>{<FontAwesomeIcon size='4x' icon={faArrowDown} />}</a>
 
-        <div className='dashboard-img-container'>
-        {/* <div className='dashboard-img'>
-        <h1>Hello</h1>
-          <img src='./images/milky-way.jpeg' alt='image' />
-        </div>
-        <div className='dashboard-img'>
-        <h1>Hello</h1>
-          <img src='./images/milky-way.jpeg' alt='image' />
-        </div>
-        <div className='dashboard-img'>
-        <h1>Hello</h1>
-          <img src='./images/milky-way.jpeg' alt='image' />
-        </div> */}
-
-
-        </div>
-        <div className='dashboard-info-container'>
-        <h1>What is Boost?</h1>
-        <p>
+      <div id='info' className="dashboard-info-container">
+        <p style={{textAlign: 'center'}}>
           Boost is an aid to help you reach your maximum potential. You have the
           ability to choose what skill to advance in. Whether it be a hobby or a
           skill you need at your job, Boost is here to help. Input your desired
           task and current skill level, and let Boost organize a unique set of
           informational videos catering to your desired needs.
         </p>
-          <h1 className='dashboard-instructions'>Instructions:</h1>
-        <p>
-        Select a skill you are looking to improve.
-        Select your current experience with desired skill.
-        Let Boost do the rest!
-        </p>
-          {<Link className="boost-dashboard-btn" to="/skillselect">Get Started</Link>}
-        </div>
+        <h1 className="dashboard-instructions">Instructions:</h1>
+  
+          <li className='dashboard-list'> Select a skill you are looking to improve.</li>
+          <li className='dashboard-list'>Select your current experience with desired skill.</li>
+          <li className='dashboard-list'>Let Boost do the rest!</li>
+
       </div>
+    </div>
   );
 }
 

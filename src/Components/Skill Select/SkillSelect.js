@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./SkillSelect.css";
 import axios from "axios";
 import keys from "../../key/accessKey";
 import { auth, db, logout } from "../Firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useHistory } from "react-router";
 import firebase from "firebase";
-import { Link } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
 import NavBar from "../Nav Bar/NavBar";
@@ -23,11 +21,10 @@ function SkillSelect() {
   const [value, setValue] = useState("");
   const [skill, setSkill] = useState("");
   const [videos, setVideos] = useState([]);
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [maxResults, setMaxResults] = useState(6);
   const [isOn, setIsOn] = useState(false);
   const [isFetching, setIsFetching] = useState(false)
-  const [random, setRandom] = useState('')
 
   const handleSubmit = async () => {
     setIsOn(true);
@@ -56,9 +53,7 @@ function SkillSelect() {
         .update({
           likedVideos: firebase.firestore.FieldValue.arrayUnion(videos),
         });
-      setTimeout(() => {
         setIsOn(false);
-      }, 3000);
     } catch (err) {
       console.error(err);
       alert(err.message);

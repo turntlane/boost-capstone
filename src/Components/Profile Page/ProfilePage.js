@@ -18,7 +18,7 @@ const override = css`
 `;
 
 function ProfilePage() {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [videos, setVideos] = useState([]);
   const [isOn, setIsOn] = useState(false);
   const [showMore, setShowMore] = useState(false)
@@ -42,29 +42,36 @@ function ProfilePage() {
   // };
 
   useEffect(() => {
-     db
-    .collection("users")
-    .where("uid", "==", user?.uid)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        setVideos(doc.data().likedVideos.map((video) => video));
-      });
-    });
-  })
+    try {
+      db
+     .collection("users")
+     .where("uid", "==", user?.uid)
+     .get()
+     .then((querySnapshot) => {
+       querySnapshot.forEach((doc) => {
+         setVideos(doc.data().likedVideos.map((video) => video));
+       });
+     });
+    }
+    catch (err) {
+      console.error(err)
+    }
+  },)
 
-  const moreItems = () => {
-    if (items <= 6) {
+  const moreItems = async () => {
+    setIsOn(true)
+     if (items <= 6) {
       setItems(items.length)
       setExpanded(true)
     } else {
       setItems(6)
       setExpanded(false)
     }
+      setIsOn(false);
   }
 
   const deleteData = async (user, videos) => {
-    setIsOn(true);
+    // setIsOn(true);
     try {
       await db
         .collection("users")
@@ -72,9 +79,7 @@ function ProfilePage() {
         .update({
           likedVideos: firebase.firestore.FieldValue.arrayRemove(videos),
         });
-        setTimeout(() => {
-          setIsOn(false);
-        }, 3000);
+          // setIsOn(false);
       // getData();
       console.log("deleted");
     } catch (err) {
@@ -84,7 +89,7 @@ function ProfilePage() {
   };
 
   return (
-    <div className='profilepage-container'>
+    <div style={videos.length < 5 ? {height: '100vh'} : {height: 'auto'}} className='profilepage-container'>
                 {isOn ? 
       <div className='loading-screen' style={{flex : 1, justifyContent: 'center', alignItems: 'center',}}>
 
