@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import { auth, db, logout } from "../Firebase/firebase";
 import NavBar from "../Nav Bar/NavBar";
-import firebase from "firebase";
 import Globe from "../Globe/Globe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
