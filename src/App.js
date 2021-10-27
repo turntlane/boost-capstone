@@ -6,7 +6,8 @@ import SignUp from './Components/Sign Up/Signup';
 import Dashboard from './Components/Dashboard/Dashboard';
 import SkillSelect from './Components/Skill Select/SkillSelect';
 import ProfilePage from './Components/Profile Page/ProfilePage';
-import NavBar from './Components/Nav Bar/NavBar';
+import Reaction from './Components/Reaction Test/Reaction';
+
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/dashboard' component={Dashboard}/>
           <Route path='/skillselect' component={SkillSelect} />
           <Route path='/profilepage' component={ProfilePage} />
+          <Route path='/reaction' component={Reaction} />
         </Switch>
       </Router>
     </div>

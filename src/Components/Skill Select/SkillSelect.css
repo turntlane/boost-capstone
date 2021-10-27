@@ -146,6 +146,35 @@
   background-color: green;
 }
 
+.skillselect-newpage {
+  color: rgb(125, 255, 253);
+  outline: none;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 52%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.skillselect-prevpage {
+  color: rgb(125, 255, 253);
+  outline: none;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 52%;
+  left: 2%;
+  cursor: pointer;
+}
+
+
+.skillselect-newpage:hover, .skillselect-prevpage:hover {
+  opacity: .5;
+}
+
+
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;

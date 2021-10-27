@@ -57,6 +57,7 @@
     font-family: "Poppins", sans-serif;
     cursor: pointer;
     filter: drop-shadow(0 1rem 1.5rem black);
+    border-radius: 5px;
 }
 
 .profilepage-deletebtn:hover {

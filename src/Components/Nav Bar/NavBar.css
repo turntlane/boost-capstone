@@ -53,9 +53,14 @@ nav {
     color: white;
 }
 
-.bg-dark {
-    /* --bs-bg-opacity: 1 !important; */
-    background-color: teal !important;
+
+.nav-logo {
+    position: absolute;
+    left: 0;
+    /* height: 3.5rem; */
+    margin-left: 5%;
+    filter: drop-shadow(0 1rem 1.5rem black);
+    
 }
 
 @keyframes navFade {

@@ -22,7 +22,7 @@ function ProfilePage() {
   const [videos, setVideos] = useState([]);
   const [isOn, setIsOn] = useState(false);
   const [showMore, setShowMore] = useState(false)
-  const [items, setItems] = useState(6)
+  const [items, setItems] = useState(9)
   const [expanded, setExpanded] = useState(false)
 
   
@@ -60,11 +60,11 @@ function ProfilePage() {
 
   const moreItems = async () => {
     setIsOn(true)
-     if (items <= 6) {
+     if (items <= 9) {
       setItems(items.length)
       setExpanded(true)
     } else {
-      setItems(6)
+      setItems(9)
       setExpanded(false)
     }
       setIsOn(false);

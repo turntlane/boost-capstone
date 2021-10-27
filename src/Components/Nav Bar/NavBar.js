@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { auth, db, logout } from "../Firebase/firebase";
 import "./NavBar.css";
 import ProfileDropDown from "../Profile Dropdown/ProfileDropDown";
+import logo2 from "../../images/boostlogo4.svg";
 
 
 function NavBar() {
@@ -33,6 +34,7 @@ function NavBar() {
 
   return (
     <nav>
+      <img className='nav-logo' src={logo2} alt='logo' />
       <Link className="nav-link" name={name} to="/dashboard">
         Home
       </Link>
@@ -41,6 +43,9 @@ function NavBar() {
       </Link>
       <Link className="nav-link" to="/profilepage">
         Profile Page
+      </Link>
+      <Link className="nav-link" to="/reaction">
+        Reaction Test
       </Link>
       <p className="nav-name">
         {name}
