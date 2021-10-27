@@ -42,19 +42,19 @@ function Dashboard() {
       <div className='dashboard-main'>
         <h1 className='whatisboost'>What is Boost?</h1>
         {
-          <Link className="boost-dashboard-btn" to="/skillselect">
+          <Link className="boost-btn1 boost-dashboard-btn" to="/skillselect">
             Get Started
           </Link>
         }
                 {
-          <Link className="boost-dashboard-btn" to="/profilepage">
+          <Link className="boost-btn2 boost-dashboard-btn" to="/profilepage">
             Profile Page
           </Link>
         }
                 {
-          <Link className="boost-dashboard-btn" to="/skillselect">
-            Reaction Test
-          </Link>
+          <a href='#info' className="boost-btn3 boost-dashboard-btn">
+            How it works
+          </a>
         }
       </div>
       <a className='dashboard-anchor' href='#info'>{<FontAwesomeIcon size='4x' icon={faArrowDown} />}</a>
@@ -67,11 +67,13 @@ function Dashboard() {
           task and current skill level, and let Boost organize a unique set of
           informational videos catering to your desired needs.
         </p>
-        <h1 className="dashboard-instructions">Instructions:</h1>
-  
+        <h1 className="dashboard-instructions">Instructions</h1>
+        <ul className='instructions-container'>
+
           <li className='dashboard-list'> Select a skill you are looking to improve.</li>
           <li className='dashboard-list'>Select your current experience with desired skill.</li>
           <li className='dashboard-list'>Let Boost do the rest!</li>
+        </ul>
 
       </div>
     </div>

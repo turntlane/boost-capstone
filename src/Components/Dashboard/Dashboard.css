@@ -2,7 +2,6 @@
 .dashboard-container {
   width: 100vw;
   height: auto;
-  /* background-color: rgb(26, 26, 26); */
   z-index: 100000;
   background-position: center;
   background-size: cover;
@@ -45,8 +44,28 @@
   margin-top: 5%;
 }
 
+.instructions-container {
+  margin-top: 5%;
+  padding: 0 5% 0 5%;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
 .dashboard-list {
   list-style: none;
+  border: 1px solid white;
+  border-radius: 25px;
+  /* padding: 5% 5% 5% 5%; */
+  margin: 0 2% 0 2%;
+  width: 60rem;
+  height: 15rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
 }
 
 
@@ -79,10 +98,13 @@
 }
 
 .whatisboost {
+animation: navFade .2s ease-in;
+
   color: white;
   letter-spacing: .2rem;
-
 }
+
+
 
 .dashboard-main {
   position: absolute;
@@ -101,4 +123,18 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.boost-btn1 {
+animation: navFade .2s ease-in;
+}
+
+.boost-btn2 {
+animation: navFade .4s ease-in;
+  
+}
+
+.boost-btn3 {
+animation: navFade .6s ease-in;
+  
 }

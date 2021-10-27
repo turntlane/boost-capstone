@@ -31,6 +31,7 @@
   font-weight: bolder;
   border-radius: 25px;
   color: white;
+  animation: navFade 0.4s ease-in;
 }
 
 .skillselect-input::placeholder {
@@ -40,12 +41,12 @@
 .skillselect-search {
   margin-left: 40%;
   cursor: pointer;
+  animation: navFade 0.4s ease-in;
 }
 
 .skillselect-search:hover {
   color: white;
 }
-
 
 .skillselect-callbtn {
   outline: none;
@@ -63,16 +64,13 @@
 }
 
 .skillselect-dropdown {
-  /* height: 1.5rem; */
-  /* -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; */
   font-size: 1.5rem;
   margin-right: 5%;
   outline: none;
   border: none;
   background-color: transparent;
   font-family: "Poppins", sans-serif;
+  animation: navFade 0.2s ease-in;
 }
 
 .skillselect-results {
@@ -82,6 +80,7 @@
   border: none;
   background-color: transparent;
   font-family: "Poppins", sans-serif;
+  animation: navFade 0.6s ease-in;
 }
 
 .skillselect-list-container {
@@ -95,10 +94,9 @@
   align-items: center;
   flex-wrap: wrap;
   background: radial-gradient(circle, rgb(152, 155, 155) 0%, rgb(0, 0, 0) 100%);
-  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  padding: 0 5% 0 5%;
+  padding: 0 5% 5% 5%;
 }
 
 .loading-screen {
@@ -113,8 +111,6 @@
   width: 100vw;
 }
 
-
-
 .skillselect-videos {
   border: none;
   outline: none;
@@ -123,7 +119,6 @@
   filter: drop-shadow(0 1rem 1.5rem black);
   margin-bottom: 5%;
   border-radius: 10px;
-  /* margin-top: 5%; */
 }
 
 .skillselect-add-btn {
@@ -133,9 +128,8 @@
   width: 11rem;
   height: 2rem;
   margin-top: 3%;
-  margin-bottom: 7%;
+  margin-bottom: 9%;
   background-color: rgb(0, 244, 49);
-  /* font-size: 2rem; */
   font-weight: lighter;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
@@ -151,7 +145,7 @@
   outline: none;
   border: none;
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   top: 52%;
   right: 2%;
   cursor: pointer;
@@ -162,18 +156,16 @@
   outline: none;
   border: none;
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   top: 52%;
   left: 2%;
   cursor: pointer;
 }
 
-
-.skillselect-newpage:hover, .skillselect-prevpage:hover {
-  opacity: .5;
+.skillselect-newpage:hover,
+.skillselect-prevpage:hover {
+  opacity: 0.5;
 }
-
-
 
 @keyframes gradient {
   0% {

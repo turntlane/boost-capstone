@@ -44,9 +44,6 @@ function NavBar() {
       <Link className="nav-link" to="/profilepage">
         Profile Page
       </Link>
-      <Link className="nav-link" to="/reaction">
-        Reaction Test
-      </Link>
       <p className="nav-name">
         {name}
       </p>

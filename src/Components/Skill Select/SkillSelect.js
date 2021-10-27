@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./SkillSelect.css";
 import axios from "axios";
-import keys from "../../key/accessKey";
 import { auth, db, logout } from "../Firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase from "firebase";
@@ -40,7 +39,7 @@ function SkillSelect() {
     try {
       await axios
         .get(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${value} ${skill} tutorial&key=${keys.ytKey}`
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&q=${value} ${skill} tutorial&key=${process.env.REACT_APP_API_KEY}`
         )
         .then((res) => {
           setVideos(res.data.items.map((item) => item.id.videoId));
@@ -57,7 +56,7 @@ function SkillSelect() {
     try {
       await axios
         .get(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&pageToken=${newPageToken}&q=${value} ${skill} tutorial&key=${keys.ytKey}`
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&pageToken=${newPageToken}&q=${value} ${skill} tutorial&key=${process.env.REACT_APP_API_KEY}`
         )
         .then((res) => {
           setNewPageToken(res.data.nextPageToken);
@@ -76,7 +75,7 @@ function SkillSelect() {
     try {
       await axios
         .get(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&pageToken=${prevPageToken}&q=${value} ${skill} tutorial&key=${keys.ytKey}`
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=${maxResults}&pageToken=${prevPageToken}&q=${value} ${skill} tutorial&key=${process.env.REACT_APP_API_KEY}`
         )
         .then((res) => {
           setPrevPageToken(res.data.prevPageToken);
@@ -153,7 +152,7 @@ function SkillSelect() {
           <option value="18">18</option>
         </select>
       </div>
-      <div className="skillselect-list-container">
+      <div style={!videos.length < 1 ? {padding: '0 5% 5% 5%'} : {padding: '0'}} className="skillselect-list-container">
         {videos.map((video, i) => (
           <div key={i}>
             <li className="skillselect-list" key={i}>

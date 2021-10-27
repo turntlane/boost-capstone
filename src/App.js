@@ -9,8 +9,6 @@ import ProfilePage from './Components/Profile Page/ProfilePage';
 import Reaction from './Components/Reaction Test/Reaction';
 
 
-
-
 function App() {
 
 
