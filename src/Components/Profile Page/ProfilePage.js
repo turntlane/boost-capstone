@@ -11,10 +11,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp, faThumbsUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const override = css`
-  postion: absolute;
-  top: 0;
-  border-color: green;
-  color: green;
+display: block;
+margin: 0 auto;
+border-color: green;
 `;
 
 function ProfilePage() {
@@ -71,7 +70,7 @@ function ProfilePage() {
   }
 
   const deleteData = async (user, videos) => {
-    // setIsOn(true);
+    setIsOn(true);
     try {
       await db
         .collection("users")
@@ -79,9 +78,9 @@ function ProfilePage() {
         .update({
           likedVideos: firebase.firestore.FieldValue.arrayRemove(videos),
         });
-          // setIsOn(false);
+          setIsOn(false);
       // getData();
-      console.log("deleted");
+      console.log("howdy");
     } catch (err) {
       console.error(err);
       alert(err.message);
