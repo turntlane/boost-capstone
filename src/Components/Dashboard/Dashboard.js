@@ -34,7 +34,7 @@ function Dashboard() {
       </a>
 
       <div id="info" className="dashboard-info-container">
-        <p style={{ textAlign: "center" }}>
+        <p className='dashboard-infop' style={{ textAlign: "center" }}>
           Boost is an aid to help you reach your maximum potential. You have the
           ability to choose what skill to advance in. Whether it be a hobby or a
           skill you need at your job, Boost is here to help. Input your desired

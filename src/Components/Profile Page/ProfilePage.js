@@ -65,7 +65,7 @@ function ProfilePage() {
         });
       setIsOn(false);
       // getData();
-      console.log("howdy");
+      console.log("yo");
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -74,7 +74,7 @@ function ProfilePage() {
 
   return (
     <div
-      style={videos.length < 5 ? { height: "100vh" } : { height: "auto" }}
+      style={videos.length <= 5 ? { height: "150vh" } : { height: "auto" }}
       className="profilepage-container"
     >
       {isOn ? (

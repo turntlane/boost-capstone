@@ -126,7 +126,7 @@ class Globe extends Component {
   }
 
   animate() {
-    const axis = new THREE.Vector3(0, 1, 0).normalize();
+    const axis = new THREE.Vector3(.1, 2, .2).normalize();
     var quaternion = new THREE.Quaternion();
     this.moon.rotation.y += -0.01;
     this.moon.rotation.x += -0.001;

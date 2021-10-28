@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { auth, db, logout } from "../Firebase/firebase";
 import "./NavBar.css";
 import ProfileDropDown from "../Profile Dropdown/ProfileDropDown";
+import ProfileDropdownMobile from "../Profile Dropdown/ProfileDropdownMobile";
 import logo2 from "../../images/boostlogo4.svg";
 
 function NavBar() {
@@ -45,6 +46,7 @@ function NavBar() {
       </Link>
       <p className="nav-name">{name}</p>
       <ProfileDropDown logout={logout} />
+      {/* <ProfileDropdownMobile logout={logout} /> */}
     </nav>
   );
 }

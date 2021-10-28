@@ -130,3 +130,50 @@
 .boost-btn3 {
   animation: navFade 0.6s ease-in;
 }
+
+@media only screen and (max-width: 815px) {
+  .dashboard-main {
+    width: 30%;
+    padding-right: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .dashboard-anchor {
+    display: none;
+  }
+  .dashboard-info-container {
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 1rem;
+    background: radial-gradient(circle, rgb(57, 57, 57) 0%, rgb(0, 0, 0) 100%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  .dashboard-list {
+    line-height: 1rem;
+    height: 10rem;
+    width: 100rem;
+  }
+
+  .whatisboost {
+    letter-spacing: 0;
+    font-size: 1.5rem;
+    width: 100vw;
+    margin-bottom: 10%;
+  }
+  .globe {
+    width: 30vw;
+  }
+  .dashboard-infop{
+    line-height: 1.5rem;
+    margin-bottom: 15%;
+  }
+}

@@ -21,7 +21,7 @@
 }
 
 .signin-boost-span {
-    color: rgb(26, 125, 118);
+    color: #3f686c;
 }
 
 .signin-content {
@@ -123,4 +123,32 @@
     100% {
         opacity: 1;
     }
+}
+
+
+
+@media only screen and (max-width: 815px ) {
+    .signin-content {
+        background-color: rgb(53, 53, 53);
+        height: 80%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: drop-shadow(0 0 0.75rem black);
+        border-radius: 15px;
+    }
+
+.signin-logo-container {
+    display: none;
+}
+
+.signin-header {
+    text-align: center;
+    line-height: 2rem;
+}
+.signin-noaccount {
+    line-height: 2rem;
+    text-align: center;
+}
 }

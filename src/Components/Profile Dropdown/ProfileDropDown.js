@@ -14,6 +14,7 @@ function ProfileDropDown() {
   };
 
   return (
+    <>
     <div className="dropdown">
       {
         <FontAwesomeIcon
@@ -25,11 +26,18 @@ function ProfileDropDown() {
 
       {showMenu ? (
         <div className="dropdown-content">
+          <Link className='nav-dashboard' to="/dashboard">Home</Link>
+          <Link className='nav-dashboard' to="/skillselect">Skill Select</Link>
           <Link to="/profilepage">Profile Page</Link>
           <a onClick={logout}>Logout</a>
         </div>
       ) : null}
-    </div>
+
+
+</div>
+
+
+    </>
   );
 }
 

@@ -25,7 +25,7 @@ function SignIn() {
     <div className="signin-container">
       <div className="signin-content">
         <div className="signin-form">
-          <h2>
+          <h2 className='signin-header'>
             Sign in to enjoy {<span className="signin-boost-span">Boost</span>}.
           </h2>
           <input
@@ -54,7 +54,7 @@ function SignIn() {
           >
             Sign in with Google
           </button>
-          <p>
+          <p className='signin-noaccount'>
             Dont have an account?
             <Link to="/signup"> Sign up</Link>
           </p>
