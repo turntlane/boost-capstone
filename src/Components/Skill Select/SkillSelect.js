@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SkillSelect.css";
 import axios from "axios";
-import { auth, db, logout } from "../Firebase/firebase";
+import { auth, db } from "../Firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase from "firebase";
 import ClipLoader from "react-spinners/ClipLoader";

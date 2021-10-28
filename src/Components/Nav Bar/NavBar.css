@@ -1,73 +1,65 @@
 nav {
-    width: 100vw;
-    height: 10vh;
-    /* background: radial-gradient(circle, rgb(26, 125, 118) 0%, rgb(128, 109, 109) 100%); */
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: row;
-    padding-right: 5%;
-    animation: navFade .5s ease-in-out;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.249);
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  padding-right: 5%;
+  animation: navFade 0.5s ease-in-out;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.249);
 }
-
 
 .nav-name {
-    font-family: 'Poppins', sans-serif;
-    color: white;
+  font-family: "Poppins", sans-serif;
+  color: white;
 }
 
-
-
 .nav-link {
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    color: white;
-    font-weight: bolder;
-    padding-right: 3%;
-    animation: navFade 1.5s ease-in;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  padding-right: 3%;
+  animation: navFade 1.5s ease-in;
 }
 
 .nav-link:hover {
-    opacity: .5;
+  opacity: 0.5;
 }
 
-
 .nav-brand {
-    list-style: none;
-    text-decoration: none;
-    color: white;
+  list-style: none;
+  text-decoration: none;
+  color: white;
 }
 
 .navbar {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: row;
-    color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  color: white;
 }
 
 .nav-dropdown {
-    color: white;
+  color: white;
 }
 
-
 .nav-logo {
-    position: absolute;
-    left: 0;
-    /* height: 3.5rem; */
-    margin-left: 5%;
-    filter: drop-shadow(0 1rem 1.5rem black);
-    
+  position: absolute;
+  left: 0;
+  margin-left: 5%;
+  filter: drop-shadow(0 1rem 1.5rem black);
 }
 
 @keyframes navFade {
-    0% {
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

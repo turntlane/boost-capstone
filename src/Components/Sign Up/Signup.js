@@ -24,12 +24,10 @@ function SignUp() {
 
   useEffect(() => {
     if (loading) {
-        return;
+      return;
     }
     if (user) history.replace("/dashboard");
   }, [user, loading]);
-
-
 
   return (
     <div className="signup-container">
@@ -59,11 +57,16 @@ function SignUp() {
         <button onClick={register} className="signup-submit">
           Sign Up
         </button>
-        <button className='signup-submit' onClick={signInWithGoogle}>Sign up with Google</button>
-        <p className='signup-signin'>
-            Already have an account?
-            <Link className='signup-link' to="/"> Sign in</Link>
-          </p>
+        <button className="signup-submit" onClick={signInWithGoogle}>
+          Sign up with Google
+        </button>
+        <p className="signup-signin">
+          Already have an account?
+          <Link className="signup-link" to="/">
+            {" "}
+            Sign in
+          </Link>
+        </p>
       </div>
     </div>
   );

@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import "./Globe.css";
 import * as THREE from "three";
 import image from "../../images/earthspec1k.jpeg";
-import image2 from "../../images/earthbump1k.jpeg";
 import image3 from "../../images/moonmap1k.jpeg";
-import point from "./Points";
 
 class Globe extends Component {
   constructor(props) {
@@ -26,7 +24,6 @@ class Globe extends Component {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 10000);
-    //  scene.background = new THREE.Color('transparent')
     const loader = new THREE.TextureLoader();
     const textureLoader = loader.load(image);
 
@@ -59,7 +56,7 @@ class Globe extends Component {
     const material = new THREE.MeshPhongMaterial({
       map: textureLoader,
       wireframe: true,
-      color: 'white'
+      color: "white",
     });
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
@@ -68,7 +65,7 @@ class Globe extends Component {
     const moonMaterial = new THREE.MeshPhongMaterial({
       map: textureLoader2,
       wireframe: true,
-      color: 'white'
+      color: "white",
     });
     moonGeometry.bumpScale = 10;
     // moonMaterial.specular  = new THREE.Color('white')
@@ -95,7 +92,6 @@ class Globe extends Component {
       camera.position.z + 40
     );
     directionalLight.name = "directional";
-    // scene.add(directionalLight);
 
     const ambientLight = new THREE.AmbientLight("white", 0.2);
 

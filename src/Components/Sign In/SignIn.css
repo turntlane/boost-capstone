@@ -1,5 +1,4 @@
 .signin-container {
-    /* background: radial-gradient(circle, rgb(111, 111, 111) 0%, rgb(0, 0, 0) 100%); */
     background: radial-gradient(circle, rgb(152, 155, 155) 0%, rgb(0, 0, 0) 100%);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
@@ -28,17 +27,17 @@
 .signin-content {
     background-color: rgb(53, 53, 53);
     height: 50%;
-    width: 60%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     filter: drop-shadow(0 0 0.75rem black);
+    border-radius: 15px;
 }
 
 .signin-form {
     font-family: 'Poppins', sans-serif;
     color: white;
-    /* background-color: rgba(0, 0, 0, 0.598); */
     width: 50%;
     height: 100%;
     display: flex;
@@ -69,7 +68,6 @@
 }
 
 .signin-btn:hover {
-    /* background-color: rgb(159, 159, 159); */
     background-color: white;
     color: black;
     animation: fadein .3s ease-in;
@@ -85,13 +83,16 @@
 
 .signin-logo-container {
     background: rgb(238,174,202);
-    background: radial-gradient(circle, rgb(26, 125, 118) 0%, rgb(128, 109, 109) 100%);
-    color: white;
+    /* background: radial-gradient(circle, rgb(203, 92, 92) 0%, rgb(128, 109, 109) 100%); */
+    background: radial-gradient(circle,#0f1010 0,#3f686c 100%);
+    color: #ffffff;
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .signin-logo {

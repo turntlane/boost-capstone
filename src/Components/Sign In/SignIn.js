@@ -25,7 +25,9 @@ function SignIn() {
     <div className="signin-container">
       <div className="signin-content">
         <div className="signin-form">
-          <h2>Sign in to enjoy {<span className='signin-boost-span'>Boost</span>}.</h2>
+          <h2>
+            Sign in to enjoy {<span className="signin-boost-span">Boost</span>}.
+          </h2>
           <input
             className="signin-username signin-input"
             type="text"
