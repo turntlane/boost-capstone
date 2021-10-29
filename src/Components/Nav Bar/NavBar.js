@@ -41,8 +41,6 @@ function NavBar() {
       await db.collection("users").doc(user.uid).update({
         photoURL: pic,
       });
-      console.log(photo);
-      console.log("it worked");
     } catch (err) {
       console.error(err);
     }
