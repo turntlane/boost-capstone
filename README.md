@@ -20,7 +20,7 @@ Access my site at [boost-d38e4.web.app](https://boost-d38e4.web.app/)
 
 ## Screenshots
 
-![Home Page](<img width="1429" alt="Screen Shot 2021-10-29 at 3 30 40 PM" src="https://user-images.githubusercontent.com/83042036/139504221-918353db-41ea-4546-bd4a-7884e450dbd9.png">
+![Home Page](<img width="1429" alt="boost-home" src="https://user-images.githubusercontent.com/83042036/139504459-d2b20a72-0b04-4f36-88a7-d23ec5156539.png">
 )
 
 ## Technologies
