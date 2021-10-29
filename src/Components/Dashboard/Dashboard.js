@@ -13,6 +13,12 @@ function Dashboard() {
       <Globe />
       <div className="dashboard-main">
         <h1 className="whatisboost">What is Boost?</h1>
+
+        {
+          <a href="#info" className="boost-btn3 boost-dashboard-btn">
+            How it works
+          </a>
+        }
         {
           <Link className="boost-btn1 boost-dashboard-btn" to="/skillselect">
             Get Started
@@ -23,11 +29,6 @@ function Dashboard() {
             Profile Page
           </Link>
         }
-        {
-          <a href="#info" className="boost-btn3 boost-dashboard-btn">
-            How it works
-          </a>
-        }
       </div>
       <a className="dashboard-anchor" href="#info">
         {<FontAwesomeIcon size="4x" icon={faArrowDown} />}
@@ -35,11 +36,7 @@ function Dashboard() {
 
       <div id="info" className="dashboard-info-container">
         <p className="dashboard-infop" style={{ textAlign: "center" }}>
-          Boost is an aid to help you reach your maximum potential. You have the
-          ability to choose what skill to advance in. Whether it be a hobby or a
-          skill you need at your job, Boost is here to help. Input your desired
-          task and current skill level, and let Boost organize a unique set of
-          informational videos catering to your desired needs.
+        Reach your maximum potential with Boost! Input your desired task and current skill level for that task, and watch Boost organize a unique blend of informational videos. Whether it be a hobby or a skill you need to for your job, Boost is here to help..
         </p>
         <h1 className="dashboard-instructions">Instructions</h1>
         <ul className="instructions-container">

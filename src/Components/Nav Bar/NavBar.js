@@ -54,7 +54,9 @@ function NavBar() {
 
   return (
     <nav>
-      <img className="nav-logo" src={logo2} alt="logo" />
+            <Link className="" name={name} to="/dashboard">
+            <img className="nav-logo" src={logo2} alt="logo" />
+      </Link>
       <Link className="nav-link" name={name} to="/dashboard">
         Home
       </Link>

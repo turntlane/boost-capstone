@@ -82,6 +82,7 @@
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   font-size: 16px;
+  color: black;
 }
 
 
@@ -100,5 +101,9 @@
     margin-top: 5%;
     border-radius: 10px;
     animation: navFade 0.4s ease-in;
+  }
+  .profilepage-deletebtn {
+    color: black;
+    background-color: rgb(244, 0, 0);
   }
 }

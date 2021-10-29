@@ -107,7 +107,7 @@ function ProfilePage() {
               className="profilepage-deletebtn"
               onClick={() => deleteData(user, video)}
             >
-              Delete from favorites {<FontAwesomeIcon icon={faTrashAlt} />}
+              Delete from favorites {<FontAwesomeIcon color='black' icon={faTrashAlt} />}
             </button>
           </div>
         ))}
@@ -116,11 +116,11 @@ function ProfilePage() {
         <button className="showmore" onClick={moreItems}>
           {expanded ? (
             <span className="showmore">
-              Show Less {<FontAwesomeIcon icon={faArrowUp} />}
+              Show Less {<FontAwesomeIcon color='black' icon={faArrowUp} />}
             </span>
           ) : (
             <span className="showmore">
-              Show All {<FontAwesomeIcon icon={faArrowDown} />}
+              Show All {<FontAwesomeIcon color='black' icon={faArrowDown} />}
             </span>
           )}
         </button>

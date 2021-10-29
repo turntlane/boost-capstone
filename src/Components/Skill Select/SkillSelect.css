@@ -178,9 +178,7 @@
   }
 }
 
-
 @media only screen and (max-width: 815px) {
-
   .skillselect-list-container {
     z-index: 100;
     list-style: none;
@@ -191,12 +189,14 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    background: radial-gradient(circle, rgb(152, 155, 155) 0%, rgb(0, 0, 0) 100%);
+    background: radial-gradient(
+      circle,
+      rgb(152, 155, 155) 0%,
+      rgb(0, 0, 0) 100%
+    );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
   }
-
-
 
   .skillselect-videos {
     border: none;
@@ -208,11 +208,8 @@
     border-radius: 10px;
   }
 
-
-
-
   .skillselect-select {
-    width: 100%;
+    width: 100vw;
     background-color: transparent;
     display: flex;
     justify-content: center;
@@ -222,12 +219,12 @@
     margin-bottom: 2%;
     margin-top: 2%;
   }
-  
+
   .skillselect-input {
     border: transparent;
     outline: none;
     font-size: 1rem;
-    width: 19rem;
+    width: 17rem;
     height: 2rem;
     padding-left: 1rem;
     background-color: rgba(4, 4, 4, 0.454);
@@ -237,57 +234,53 @@
     color: white;
     animation: navFade 0.4s ease-in;
   }
-  
+
   .skillselect-input::placeholder {
     color: white;
   }
-  
+
   .skillselect-search {
-    margin-left: 40%;
+    width: 100%;
+    margin-left: 20%;
+    padding-right: 20%;
     cursor: pointer;
     animation: navFade 0.4s ease-in;
   }
-  
+
   .skillselect-search:hover {
     color: white;
   }
-  
+
   .skillselect-callbtn {
     outline: none;
     border: none;
     background-color: transparent;
+    padding: 2% 2% 2% 2%;
   }
 
-
-
-
   .skillselect-dropdown {
+    color: black;
+    width: 45%;
     text-align: left;
     font-size: 1rem;
     margin-right: 0;
-    outline: none;
-    border: none;
-    background-color: transparent;
     font-family: "Poppins", sans-serif;
     animation: navFade 0.2s ease-in;
+    appearance: menulist;
   }
 
-
-
-
   .skillselect-results {
+    color: black;
+    width: 45%;
     text-align: left;
     font-size: 1rem;
     margin-left: 0;
-    outline: none;
-    border: none;
-    background-color: transparent;
     font-family: "Poppins", sans-serif;
     animation: navFade 0.6s ease-in;
+    appearance: menulist;
+    /* padding: 2% 2% 2% 2%; */
   }
-
-
-
-
-
+  .skillselect-add-btn {
+    color: black;
+  }
 }

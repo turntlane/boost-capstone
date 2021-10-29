@@ -140,7 +140,7 @@ function SkillSelect() {
           onChange={(e) => setSkill(e.target.value)}
         />
         <button className="skillselect-callbtn" onClick={handleSubmit}>
-          <FontAwesomeIcon className="skillselect-search" icon={faSearch} />
+          <FontAwesomeIcon className="skillselect-search" color='black' icon={faSearch} />
         </button>
         <select
           className="skillselect-results"
@@ -167,7 +167,7 @@ function SkillSelect() {
               className="skillselect-add-btn"
               onClick={() => addVideos(user, video)}
             >
-              Add to favorites {<FontAwesomeIcon icon={faPlus} />}
+              Add to favorites {<FontAwesomeIcon color='black' icon={faPlus} />}
             </button>
           </div>
         ))}
