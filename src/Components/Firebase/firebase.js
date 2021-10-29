@@ -27,7 +27,8 @@ const signInWithGoogle = async (e) => {
         name: user.displayName,
         authProvider: "google",
         email: user.email,
-        likedVideos: []
+        likedVideos: [],
+        photoURL: user.photoURL
       });
     }
   } catch (err) {
@@ -53,7 +54,8 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       name,
       authProvider: "local",
       email,
-      likedVideos: []
+      likedVideos: [],
+      photoURL: 'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'
     });
   } catch (err) {
     console.error(err);
