@@ -6,6 +6,8 @@ import { auth, db, logout } from "../Firebase/firebase";
 import "./NavBar.css";
 import ProfileDropDown from "../Profile Dropdown/ProfileDropDown";
 import logo2 from "../../images/boostlogo4.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
   const [user, loading] = useAuthState(auth);
@@ -47,10 +49,8 @@ function NavBar() {
   };
 
   const setOpen = () => {
-    setIsOpen(true)
-  }
-
-
+    setIsOpen(true);
+  };
 
   return (
     <nav>
@@ -65,13 +65,35 @@ function NavBar() {
         Profile Page
       </Link>
       <p className="nav-name">{name}</p>
-      <img onClick={setOpen} className="profile-pic" src={photo} alt="profile" />
+      <img
+        onClick={setOpen}
+        className="profile-pic"
+        src={photo}
+        alt="profile"
+      />
       <ProfileDropDown logout={logout} />
 
       {isOpen ? (
-        <div className='profilepic-container'>
-        <input placeholder='Image Address Link' className='profilepic-input' onChange={(e) => updatePic(e.target.value)}></input>
-        <button className='profilepic-submit' onClick={() => setIsOpen(false)}>Change Pic</button>
+        <div className="profilepic-container">
+          <input
+            placeholder="Image Address Link"
+            className="profilepic-input"
+            onChange={(e) => updatePic(e.target.value)}
+          ></input>
+          <button
+            className="profilepic-submit"
+            onClick={() => setIsOpen(false)}
+          >
+            {<FontAwesomeIcon icon={faPlus} />}
+          </button>
+          {
+            <FontAwesomeIcon
+              onClick={() => setIsOpen(false)}
+              className="profilepic-exit"
+              size="3x"
+              icon={faTimes}
+            />
+          }
         </div>
       ) : null}
     </nav>

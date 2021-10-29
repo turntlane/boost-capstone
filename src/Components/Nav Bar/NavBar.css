@@ -77,14 +77,21 @@ nav {
   top: 0%;
   left: 0%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .profilepic-input {
-  width: 20rem;
-  height: 2rem;
+  width: 30rem;
+  height: 2.5rem;
+  margin-right: 1%;
+}
+
+.profilepic-input::placeholder{
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+  padding-left: 2%;
 }
 
 .profilepic-submit {
@@ -93,10 +100,17 @@ nav {
   background-color: rgb(3, 208, 244);
   color: white;
   cursor: pointer;
-  width: 20rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.404rem;
 }
 
+.profilepic-exit {
+  color: white;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  cursor: pointer;
+}
 
 
 @keyframes navFade {
