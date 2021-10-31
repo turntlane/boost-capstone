@@ -54,10 +54,10 @@ function SignUp() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button onClick={register} className="signup-submit">
+        <button onClick={register} className="signup-btn signup-submit">
           Sign Up
         </button>
-        <button className="signup-submit" onClick={signInWithGoogle}>
+        <button className="signup-google signup-submit" onClick={signInWithGoogle}>
           Sign up with Google
         </button>
         <p className="signup-signin">
