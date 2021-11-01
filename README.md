@@ -20,8 +20,12 @@ Access my site at [boost-d38e4.web.app](https://boost-d38e4.web.app/)
 
 ## Screenshots
 
-![Home Page](<img width="1429" alt="boost-home" src="https://user-images.githubusercontent.com/83042036/139504459-d2b20a72-0b04-4f36-88a7-d23ec5156539.png">
-)
+
+![Home Page](src/images/readme-images/boost-home.png)
+![Instructions](src/images/readme-images/instructions.png)
+![Skill Select](src/images/readme-images/skillselect.png)
+![Skill Select Videos](src/images/readme-images/skillselect-vids.png)
+![Profile Page](src/images/readme-images/profilepage.png)
 
 ## Technologies
 I used `html`, `css`, ...

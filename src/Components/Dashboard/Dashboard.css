@@ -1,3 +1,7 @@
+* {
+  scroll-behavior: smooth;
+}
+
 .dashboard-container {
   width: 100vw;
   height: auto;
@@ -120,15 +124,15 @@
 }
 
 .boost-btn1 {
-  animation: navFade 0.2s ease-in;
-}
-
-.boost-btn2 {
   animation: navFade 0.4s ease-in;
 }
 
-.boost-btn3 {
+.boost-btn2 {
   animation: navFade 0.6s ease-in;
+}
+
+.boost-btn3 {
+  animation: navFade 0.2s ease-in;
 }
 
 @media only screen and (max-width: 815px) {
