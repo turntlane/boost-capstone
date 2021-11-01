@@ -12,8 +12,6 @@ Access my site at [boost-d38e4.web.app](https://boost-d38e4.web.app/)
 - [Setup](#setup)
 - [Approach](#approach)
 - [Status](#status)
-- [Credits](#credits)
-- [License](#license)
 
 ## About The App
 [Boost] is an app that helps you each your maximum potential! Input your desired task and current skill level for that task, and watch Boost organize a unique blend of informational videos. Whether it be a hobby or a skill you need to for your job, Boost is here to help.
@@ -21,31 +19,23 @@ Access my site at [boost-d38e4.web.app](https://boost-d38e4.web.app/)
 ## Screenshots
 
 
-![Home Page](src/images/readme-images/boost-home.png)
-![Instructions](src/images/readme-images/instructions.png)
-![Skill Select](src/images/readme-images/skillselect.png)
-![Skill Select Videos](src/images/readme-images/skillselect-vids.png)
-![Profile Page](src/images/readme-images/profilepage.png)
+[Home Page](src/images/readme-images/boost-home.png)
+[Instructions](src/images/readme-images/instructions.png)
+[Skill Select](src/images/readme-images/skillselect.png)
+[Skill Select Videos](src/images/readme-images/skillselect-vids.png)
+[Profile Page](src/images/readme-images/profilepage.png)
 
 ## Technologies
-I used `html`, `css`, ...
+I used `React`, `CSS`, `Three.js`, `Axios`, `React Bootstrap`, `Firebase`, `Firebase AUTH`, `Firestore` 
 
 ## Setup
 - download or clone the repository
 - run `npm install`
-- ...
+- run `npm install axios`
 
 ## Approach
-I adopted the `BEM` naming style for my css class names and ...
+Keeping layout, styling, and functionality as clean and usable for the user. Naming conventions easily maintainable for Components and CSS. Each component has own CSS file for increased readability. 
 
 ## Status
-[name of project] is still in progress. `Version 2` will be out soon.
+[Boost] is completed. `Version 2` will be out soon.
 
-## Credits
-List of contriubutors:
-- [John Doe](johndoe.com)
-- [Beginners guide to BEM](link-goes-here.com)
-
-## License
-
-MIT license @ [author](author.com)
