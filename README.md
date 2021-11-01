@@ -35,7 +35,6 @@ I used `React`, `CSS`, `Three.js`, `Axios`, `React Bootstrap`, `Firebase`, `Fire
 ## Setup
 - download or clone the repository
 - run `npm install`
-- run `npm install axios`
 
 ## Approach
 Keeping layout, styling, and functionality as clean and usable for the user. Naming conventions easily maintainable for Components and CSS. Each component has own CSS file for increased readability. 
