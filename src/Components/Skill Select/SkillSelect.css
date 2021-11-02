@@ -120,6 +120,10 @@
   border-radius: 10px;
 }
 
+.skillselect-videos:hover {
+  filter: drop-shadow(0 1rem 4rem black);
+}
+
 .skillselect-add-btn {
   outline: none;
   border: none;
@@ -207,6 +211,7 @@
     margin-bottom: 5%;
     border-radius: 10px;
   }
+
 
   .skillselect-select {
     width: 100vw;

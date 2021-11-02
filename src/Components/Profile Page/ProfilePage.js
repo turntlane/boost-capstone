@@ -20,6 +20,12 @@ const override = css`
   border-color: green;
 `;
 
+const back = css`
+filter: drop-shadow(0 1rem 1.5rem blue);
+`;
+
+
+
 function ProfilePage() {
   const [user] = useAuthState(auth);
   const [videos, setVideos] = useState([]);
@@ -28,8 +34,8 @@ function ProfilePage() {
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
-    try {
-      db.collection("users")
+    try { 
+       db.collection("users")
         .where("uid", "==", user?.uid)
         .get()
         .then((querySnapshot) => {
@@ -37,21 +43,25 @@ function ProfilePage() {
             setVideos(doc.data().likedVideos.map((video) => video));
           });
         });
-    } catch (err) {
+    }
+     catch (err) {
       console.error(err);
     }
   });
 
+
   const moreItems = async () => {
-    setIsOn(true);
     if (items <= 9) {
+      setIsOn(true);
       setItems(items.length);
       setExpanded(true);
+      setIsOn(false);
     } else {
+      setIsOn(true);
       setItems(9);
       setExpanded(false);
+      setIsOn(false);
     }
-    setIsOn(false);
   };
 
   const deleteData = async (user, videos) => {
@@ -64,8 +74,6 @@ function ProfilePage() {
           likedVideos: firebase.firestore.FieldValue.arrayRemove(videos),
         });
       setIsOn(false);
-      // getData();
-      console.log("yo");
     } catch (err) {
       console.error(err);
       alert(err.message);

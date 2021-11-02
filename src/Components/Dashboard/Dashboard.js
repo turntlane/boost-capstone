@@ -36,7 +36,7 @@ function Dashboard() {
 
       <div id="info" className="dashboard-info-container">
         <p className="dashboard-infop" style={{ textAlign: "center" }}>
-        Reach your maximum potential with Boost! Input your desired task and current skill level for that task, and watch Boost organize a unique blend of informational videos. Whether it be a hobby or a skill you need to for your job, Boost is here to help..
+        Reach your maximum potential with Boost! Input your desired task and current skill level for that task, and watch Boost organize a unique blend of informational videos. Whether it be a hobby or a skill you need for your job, Boost is here to help..
         </p>
         <h1 className="dashboard-instructions">Instructions</h1>
         <ul className="instructions-container">
@@ -49,6 +49,11 @@ function Dashboard() {
           </li>
           <li className="dashboard-list">Let Boost do the rest!</li>
         </ul>
+        {
+          <Link className="boost-btn1 boost-dashboard-btn" to="/skillselect">
+            Get Started
+          </Link>
+        }
       </div>
     </div>
   );
